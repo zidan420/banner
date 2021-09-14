@@ -358,9 +358,13 @@ def banner(text):
 
 def main():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-t', '--text', help="Text to be used as logo")
+	parser.add_argument('-t', '--text', help="Text to be used as banner")
 	args = parser.parse_args()
 	text = args.text
+	
+	if text == None:
+		parser.print_help()
+		exit()
 
 	logo = banner(text)
 	print(logo)
